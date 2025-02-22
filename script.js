@@ -79,35 +79,11 @@ function rowData(suspect, dateSheet) {
     if (number === 0) return number;
     return `<span style="color: ${colour};">${number}</span>`;
   }
-  return `${dateSheet} Opening: ${opening} , Stock In: ${colourNumber("green", stockIn)}
-   ,Stock Out: ${colourNumber("red", stockOut)}, Wastage: ${colourNumber("red", wastage)}, Closing: ${closing}`;
+  return `<span class="dateRow"> ${dateSheet} Opening: ${opening} , Stock In: ${colourNumber("green", stockIn)}
+   ,Stock Out: ${colourNumber("red", stockOut)}, Wastage: ${colourNumber("red", wastage)}, Closing: ${closing}</span>`;
   // return `${dateSheet} Opening: ${opening}, Stock In: ${stockIn}, Stock Out: ${stockOut}, Wastage: ${wastage}, Closing: ${closing}`;
 }
 
-// Displays data for each suspect over the last 6 days.
-function showData() {
-  for (let j = 0; j < suspects.length; j++) {
-    const suspect = suspects[j];
-
-    for (let i = 0; i < 6; i++) {
-      // Compute the sheet name for (today - i days)
-      const parts = todaysSheetName.split(".");
-      const d = new Date();
-      d.setDate(d.getDate() - i);
-      const day = d.getDate();
-      const dateSheet = `${day}.${parts[1]}.${parts[2]}`;
-      // console.log(dateSheet, rowData(suspect, dateSheet));
-
-      if (i == 0) {
-        const cakeName = getCellValue(dateSheet, "B" + suspect);
-        history.innerHTML += `<span style="font-weight: bold;">${cakeName}</span><br>`;
-      }
-
-      history.innerHTML += rowData(suspect, dateSheet) + "<br>";
-    }
-    history.innerHTML += "<hr>";
-  }
-}
 
 // Recursively checks past days to determine a suspect.
 function checkLastDay(row, value, duration) {

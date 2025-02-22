@@ -11,3 +11,18 @@
   font-size: 1.2em;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.dateRow:hover {
+  cursor: pointer;
+  outline: 1px solid black;
+  outline-offset: 2px;
+  font-size: 1.005em;
+
+
+}
+
+
+.cakeName {
+  font-size: 1.5em;
+  font-weight: bold;
+}
